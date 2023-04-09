@@ -5,42 +5,40 @@
 # project
 cmake_minimum_required(VERSION 3.15.0)
 cmake_policy(SET CMP0091 NEW)
-project(task1 LANGUAGES CXX C)
+project(task LANGUAGES CXX C)
 
 # target
-set(CMAKE_C_COMPILER "/usr/bin/clang")
-set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
-add_executable(task1 "")
-set_target_properties(task1 PROPERTIES OUTPUT_NAME "task1")
-set_target_properties(task1 PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/linux/x86_64/release")
-target_include_directories(task1 PRIVATE
+add_executable(task "")
+set_target_properties(task PROPERTIES OUTPUT_NAME "task")
+set_target_properties(task PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/linux/x86_64/debug")
+target_include_directories(task PRIVATE
     /home/dream/cpplibrary/cmdline
 )
-target_compile_options(task1 PRIVATE
+target_compile_options(task PRIVATE
     $<$<COMPILE_LANGUAGE:C>:-m64>
     $<$<COMPILE_LANGUAGE:CXX>:-m64>
-    $<$<COMPILE_LANGUAGE:C>:-DNDEBUG>
-    $<$<COMPILE_LANGUAGE:CXX>:-DNDEBUG>
 )
-set_target_properties(task1 PROPERTIES CXX_EXTENSIONS OFF)
-target_compile_features(task1 PRIVATE cxx_std_17)
+set_target_properties(task PROPERTIES CXX_EXTENSIONS OFF)
+target_compile_features(task PRIVATE cxx_std_17)
 if(MSVC)
-    target_compile_options(task1 PRIVATE $<$<CONFIG:Release>:-Ox -fp:fast>)
+    target_compile_options(task PRIVATE $<$<CONFIG:Debug>:-Od>)
 else()
-    target_compile_options(task1 PRIVATE -O3)
+    target_compile_options(task PRIVATE -O0)
 endif()
 if(MSVC)
+    target_compile_options(task PRIVATE -Zi)
 else()
-    target_compile_options(task1 PRIVATE -fvisibility=hidden)
+    target_compile_options(task PRIVATE -g)
 endif()
 if(MSVC)
-    set_property(TARGET task1 PROPERTY
+    set_property(TARGET task PROPERTY
         MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 endif()
-target_link_options(task1 PRIVATE
+target_link_options(task PRIVATE
     -m64
 )
-target_sources(task1 PRIVATE
+target_sources(task PRIVATE
+    src/Action.cpp
     src/func.cpp
     src/main.cpp
 )
