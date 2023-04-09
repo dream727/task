@@ -1,0 +1,11 @@
+[
+{
+  "directory": "/home/dream/Program/task",
+  "arguments": ["/usr/bin/clang", "-c", "-Qunused-arguments", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I/home/dream/cpplibrary/cmdline", "-DNDEBUG", "-o", "build/.objs/task1/linux/x86_64/release/src/func.cpp.o", "src/func.cpp"],
+  "file": "src/func.cpp"
+},
+{
+  "directory": "/home/dream/Program/task",
+  "arguments": ["/usr/bin/clang", "-c", "-Qunused-arguments", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I/home/dream/cpplibrary/cmdline", "-DNDEBUG", "-o", "build/.objs/task1/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
+  "file": "src/main.cpp"
+}]

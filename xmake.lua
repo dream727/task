@@ -1,6 +1,7 @@
 add_rules("mode.debug", "mode.release")
-
+set_languages("cxx17")
 target("task1")
+    add_includedirs("~/cpplibrary/cmdline/")
     set_kind("binary")
     add_files("src/*.cpp")
 
