@@ -1,11 +1,16 @@
 [
 {
   "directory": "/home/dream/Program/task",
-  "arguments": ["/usr/bin/clang", "-c", "-Qunused-arguments", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I/home/dream/cpplibrary/cmdline", "-DNDEBUG", "-o", "build/.objs/task1/linux/x86_64/release/src/func.cpp.o", "src/func.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++17", "-I/home/dream/cpplibrary/cmdline", "-o", "build/.objs/task/linux/x86_64/debug/src/Action.cpp.o", "src/Action.cpp"],
+  "file": "src/Action.cpp"
+},
+{
+  "directory": "/home/dream/Program/task",
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++17", "-I/home/dream/cpplibrary/cmdline", "-o", "build/.objs/task/linux/x86_64/debug/src/func.cpp.o", "src/func.cpp"],
   "file": "src/func.cpp"
 },
 {
   "directory": "/home/dream/Program/task",
-  "arguments": ["/usr/bin/clang", "-c", "-Qunused-arguments", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-std=c++17", "-I/home/dream/cpplibrary/cmdline", "-DNDEBUG", "-o", "build/.objs/task1/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
+  "arguments": ["/usr/bin/gcc", "-c", "-m64", "-g", "-O0", "-std=c++17", "-I/home/dream/cpplibrary/cmdline", "-o", "build/.objs/task/linux/x86_64/debug/src/main.cpp.o", "src/main.cpp"],
   "file": "src/main.cpp"
 }]
