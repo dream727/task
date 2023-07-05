@@ -1,9 +1,12 @@
 add_rules("mode.debug", "mode.release")
-set_languages("cxx17")
+
 target("task")
-    add_includedirs("~/cpplibrary/cmdline/")
+    add_toolchains("clang")
+    set_targetdir("./build/")
     set_kind("binary")
     add_files("src/*.cpp")
+    -- add_files("src/*.h")
+    -- add_files("src/*.hpp")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

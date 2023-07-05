@@ -8,27 +8,25 @@ cmake_policy(SET CMP0091 NEW)
 project(task LANGUAGES CXX C)
 
 # target
+set(CMAKE_C_COMPILER "/usr/bin/clang")
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 add_executable(task "")
 set_target_properties(task PROPERTIES OUTPUT_NAME "task")
-set_target_properties(task PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build/linux/x86_64/debug")
-target_include_directories(task PRIVATE
-    /home/dream/cpplibrary/cmdline
-)
+set_target_properties(task PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/build")
 target_compile_options(task PRIVATE
     $<$<COMPILE_LANGUAGE:C>:-m64>
     $<$<COMPILE_LANGUAGE:CXX>:-m64>
+    $<$<COMPILE_LANGUAGE:C>:-DNDEBUG>
+    $<$<COMPILE_LANGUAGE:CXX>:-DNDEBUG>
 )
-set_target_properties(task PROPERTIES CXX_EXTENSIONS OFF)
-target_compile_features(task PRIVATE cxx_std_17)
 if(MSVC)
-    target_compile_options(task PRIVATE $<$<CONFIG:Debug>:-Od>)
+    target_compile_options(task PRIVATE $<$<CONFIG:Release>:-Ox -fp:fast>)
 else()
-    target_compile_options(task PRIVATE -O0)
+    target_compile_options(task PRIVATE -O3)
 endif()
 if(MSVC)
-    target_compile_options(task PRIVATE -Zi)
 else()
-    target_compile_options(task PRIVATE -g)
+    target_compile_options(task PRIVATE -fvisibility=hidden)
 endif()
 if(MSVC)
     set_property(TARGET task PROPERTY

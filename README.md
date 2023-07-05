@@ -34,7 +34,7 @@ void deleteFinshedTask(int index);
 //查找任务
 void findTask(std::string task); 
 //查找完成的任务
-void findFinshTask(std::string task);
+void findFinishTask(std::string task);
 //完成任务
 void finshTask(int index); 
 ```

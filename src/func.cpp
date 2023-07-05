@@ -65,7 +65,7 @@ void getSingle(const std::string &path,const int index){
 		[](){
 			cout<<"File not found.\n\tPlease execute task init or check the file path.";
 		},
-		[=](){
+		[&](){
 			if (index < lists.size()) {
 				cout<<lists[index];
 			}
